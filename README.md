@@ -1,4 +1,4 @@
-# data-adapter
+# DATA-ADAPTER
 
 Focusing on the pain points of a developer while moving files across different storages lik file system,AWS,MongoDB or any other cloud environment, This module serves as a easy to switch adapter interface for File system and AWS currently.This library can be extended easily to support any cloud storages or databases.Contributions Welcome!
 
@@ -71,7 +71,4 @@ Tests are written in mocha, chai and sinon.To run all test cases run the followi
 * https://sinonjs.org
 
 ### Issues
-* To raise an issue https://github.com/jenilChristo/data-adapter/issues
-
-### PR's
-* Submit a PR https://github.com/jenilChristo/data-adapter/pulls
+* To raise an issue 
