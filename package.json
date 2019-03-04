@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "test": "./node_modules/.bin/mocha $(find test -name '*.test.js')",
-    "compile": "rm -rf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log --copy-files",
+    "compile": "rm -rf dist/ && babel ./ --out-dir dist/ --ignore ./node_modules,./.babelrc,./package.json,./npm-debug.log,README.md,LICENSE --copy-files",
     "postinstall": "npm run compile",
     "start": "npm run compile && node dist/index.js"
   },

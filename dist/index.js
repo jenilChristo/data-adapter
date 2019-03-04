@@ -1,5 +1,3 @@
-"use strict";
-
 module.exports = function (config) {
     if (config.data_store === "s3") {
         return require("./lib/s3")(config);

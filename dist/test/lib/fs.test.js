@@ -1,11 +1,7 @@
-'use strict';
-
-var fsUtil = require('../../dist/lib/fs');
-var fs = require('fs');
-var sinon = require('sinon');
-
-var _require = require('chai'),
-    assert = _require.assert;
+const fsUtil = require('../../dist/lib/fs');
+const fs = require('fs');
+const sinon = require('sinon');
+const { assert } = require('chai');
 
 describe("Tests for fs adapter @fs-test@ @bullet-proof@", function () {
     it("#saveFile should be a function", function () {
@@ -21,8 +17,8 @@ describe("Tests for fs adapter @fs-test@ @bullet-proof@", function () {
         assert.isFunction(fsUtil.getMetaData);
     });
     it("#saveFile should call fs.writeFile", function () {
-        var writeFileStub = sinon.stub(fs, 'writeFile');
-        var options = {
+        let writeFileStub = sinon.stub(fs, 'writeFile');
+        let options = {
             path: "/new.txt",
             content: "Hello"
         };

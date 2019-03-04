@@ -1,13 +1,9 @@
-'use strict';
-
-var s3Util = require('../../dist/lib/s3')({ s3: {
+const s3Util = require('../../dist/lib/s3')({ s3: {
         bucket: "bucket_name"
     } });
-var fs = require('fs');
-var sinon = require('sinon');
-
-var _require = require('chai'),
-    assert = _require.assert;
+const fs = require('fs');
+const sinon = require('sinon');
+const { assert } = require('chai');
 
 describe("Tests for s3 adapter @s3-test@ @bullet-proof@", function () {
     console.log(s3Util);

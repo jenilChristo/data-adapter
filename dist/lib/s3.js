@@ -1,11 +1,9 @@
-"use strict";
-
-var fs = require("fs");
-var path = require("path");
+const fs = require("fs");
+const path = require("path");
 
 //lazy loading AWS sdk
-var AWS = null;
-var s3 = null;
+let AWS = null;
+let s3 = null;
 function lazyAWS() {
     if (!AWS || !s3) {
         AWS = require('aws-sdk');
@@ -27,22 +25,22 @@ function lazyAWS() {
 module.exports = function (config) {
 
     //S3 API for SaveFile
-    var saveFile = function saveFile(options) {
+    const saveFile = options => {
         // call S3 to retrieve upload file to specified bucket
         lazyAWS(); //loads aws lazily
-        var uploadParams = { Bucket: config.s3.bucket, Key: '', Body: '' };
-        var file = options.path;
+        let uploadParams = { Bucket: config.s3.bucket, Key: '', Body: '' };
+        let file = options.path;
 
-        return new Promise(function (resolve, reject) {
+        return new Promise((resolve, reject) => {
             if (!isValidPath(file)) {
                 reject("File path is not valid");
             }
-            var fileStream = fs.createReadStream(file);
+            let fileStream = fs.createReadStream(file);
             fileStream.on('error', function (err) {
                 reject('File Error', err);
             });
             uploadParams.Body = fileStream;
-            var path = require('path');
+            let path = require('path');
             uploadParams.Key = path.basename(file);
 
             // call S3 to retrieve upload file to specified bucket
@@ -62,24 +60,24 @@ module.exports = function (config) {
     };
 
     //S3 API for getFile
-    var getFile = function getFile(options) {
+    const getFile = options => {
         lazyAWS();
-        var path = options.path || null;
-        var output = options.output || null;
+        let path = options.path || null;
+        let output = options.output || null;
         //create out dir if not exists
         if (!fs.existsSync('./out')) {
             fs.mkdirSync('./out');
         }
-        return new Promise(function (resolve, reject) {
+        return new Promise((resolve, reject) => {
             if (!path || !output) {
                 reject("Input or Output path not valid");
             };
-            var destPath = "/out/" + path.basename(options.path);
-            var downloadParams = {
+            const destPath = `/out/${path.basename(options.path)}`;
+            const downloadParams = {
                 Bucket: config.s3.bucket,
                 key: path
             };
-            s3.getObject(downloadParams).createReadStream().pipe(fs.createWriteStream(destPath)).on('close', function () {
+            s3.getObject(downloadParams).createReadStream().pipe(fs.createWriteStream(destPath)).on('close', () => {
                 resolve(destPath);
             }).on('error', function (err) {
                 reject(err);
@@ -87,14 +85,14 @@ module.exports = function (config) {
         });
     };
 
-    var deleteFile = function deleteFile(options) {
+    const deleteFile = options => {
         lazyAWS();
-        var path = options.path || null;
-        return new Promise(function (resolve, reject) {
+        let path = options.path || null;
+        return new Promise((resolve, reject) => {
             if (!path) {
                 reject("Input or Output path not valid");
             };
-            var deleteParams = {
+            const deleteParams = {
                 Bucket: config.s3.bucket,
                 key: path
             };
@@ -105,14 +103,14 @@ module.exports = function (config) {
     };
 
     //S3 API for getFile
-    var getMetaData = function getMetaData(options) {
+    const getMetaData = options => {
         lazyAWS();
-        var path = options.path || null;
-        return new Promise(function (resolve, reject) {
+        let path = options.path || null;
+        return new Promise((resolve, reject) => {
             if (!path) {
                 reject("Input path not valid");
             };
-            var downloadParams = {
+            const downloadParams = {
                 Bucket: config.s3.bucket,
                 key: path
             };
