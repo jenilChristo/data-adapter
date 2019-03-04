@@ -71,4 +71,11 @@ Tests are written in mocha, chai and sinon.To run all test cases run the followi
 * https://sinonjs.org
 
 ### Issues
-* To raise an issue 
+While this library is still not past the beta development stage and needs to be improved before it is used in production, any issues or comments are welcome and we are ready to address them and patch a fix if required
+
+* To raise an issue goto https://github.com/jenilChristo/data-adapter/issues
+
+### PR
+While this library is still not past the beta stage , any active suggestions or contributions are most welcome
+
+* Open a PR https://github.com/jenilChristo/data-adapter/issues
