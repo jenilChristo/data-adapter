@@ -71,4 +71,7 @@ Tests are written in mocha, chai and sinon.To run all test cases run the followi
 * https://sinonjs.org
 
 ### Issues
-* To raise an issue 
+* To raise an issue https://github.com/jenilChristo/data-adapter/issues
+
+### PR's
+* Submit a PR https://github.com/jenilChristo/data-adapter/pulls
