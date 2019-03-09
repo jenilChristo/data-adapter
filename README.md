@@ -15,8 +15,8 @@ From your node project folder run  the below npm command.You must have the git s
 config is a configurable object for the adapter that chooses the data store.Config looks like
 
 `const config = { 
-  data_store:"fs", //can be fs,s3
-  s3:{
+  data_store:"fs", //can be fs,s3 \n
+  s3:{\n
       bucket:"bucket_name",
       apiVersin:"apiVersion to connect",
       cPath:"path to s3 config json",
