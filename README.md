@@ -14,14 +14,14 @@ From your node project folder run  the below npm command.You must have the git s
 
 config is a configurable object for the adapter that chooses the data store.Config looks like
 
-`const config = { . \n
-  data_store:"fs", //can be fs,s3 . \n
-  s3:{ . \n
-      bucket:"bucket_name",  \n
-      apiVersin:"apiVersion to connect",  \n
-      cPath:"path to s3 config json",  \n
-  } . \n
-} . `
+```const config = { . 
+  data_store:"fs", //can be fs,s3 . 
+  s3:{ . 
+      bucket:"bucket_name",  
+      apiVersin:"apiVersion to connect",  
+      cPath:"path to s3 config json", 
+  } . 
+} . ```
 
 ### Supported API's
 All the API's are promise based to support asynchronisity .Thus errors has to be handled appropriately in the promise chains
